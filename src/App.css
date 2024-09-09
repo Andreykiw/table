@@ -1,0 +1,56 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #406cfc;
+}
+
+.add__row-plus {
+  display: flex;
+  background-color: #406cfc;
+  background-image: url(/image/plus.svg);
+  border-radius: 4px;
+  border: 1px solid #b8b8b8;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.name__cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expand__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  margin-left: 10px;
+  transition: all .25s ease-in-out;
+}
+
+input{
+  border: none;
+}
