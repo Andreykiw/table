@@ -1,4 +1,4 @@
-// dataService.js
+
 
 const data = [
     { id: 1, name: 'Иван', surname: 'Иванов', age: 28, info: 'инженер', email: 'ivan@example.com', city: 'Санкт-Петербург'},

@@ -1,0 +1,15 @@
+.name__cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.expand__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    margin-left: 10px;
+    transition: all .25s ease-in-out;
+}

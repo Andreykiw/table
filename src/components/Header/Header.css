@@ -1,0 +1,29 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #ccc;
+}
+
+.add__row-plus {
+    display: flex;
+    background-color: #406cfc;
+    background-image: url(../../../public/image/plus.svg);
+    border-radius: 4px;
+    border: 1px solid #b8b8b8;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.load__data-button {
+    display: flex;
+    background-color: #406cfc;
+    border-radius: 4px;
+    border: 1px solid #b8b8b8;
+    cursor: pointer;
+}
