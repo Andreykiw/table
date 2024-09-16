@@ -24,6 +24,7 @@ export const Modal = ({ onClose, onSubmit }) => {
         onSubmit(formData); 
     };
 
+
     return (
         <div className="modal">
             <div className="modal-content">
@@ -40,6 +41,10 @@ export const Modal = ({ onClose, onSubmit }) => {
                     <label>
                         Возраст:
                         <input type="number" name="age" value={formData.age} onChange={handleChange} required />
+                    </label>
+                    <label>
+                        Должность:
+                        <input type="email" name="text" value={formData.info} onChange={handleChange} required />
                     </label>
                     <label>
                         Email:
