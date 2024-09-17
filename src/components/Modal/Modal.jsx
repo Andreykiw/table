@@ -44,7 +44,7 @@ export const Modal = ({ onClose, onSubmit }) => {
                     </label>
                     <label>
                         Должность:
-                        <input type="email" name="text" value={formData.info} onChange={handleChange} required />
+                        <input type="text" name="info" value={formData.info} onChange={handleChange} required />
                     </label>
                     <label>
                         Email:

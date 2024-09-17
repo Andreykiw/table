@@ -1,53 +1,71 @@
-import { useState } from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import { Header } from './components/Header/Header'; 
-import { Table } from './components/Table/Table'; 
+import { Header } from './components/Header/Header';
+import { Table } from './components/Table/Table';
 import { Modal } from './components/Modal/Modal'; 
-import { fetchData } from './data/dataService'; 
+import { fetchData } from './data/dataService';
 
-export const App = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+export class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],       
+      loading: false,  
+      isModalOpen: false 
+    };
+  }
 
-
-  const handleLoadData = () => {
-    setLoading(true);
+ 
+  handleLoadData = () => {
+    this.setState({ loading: true });
     fetchData().then((result) => {
-      setData(result);
-      setLoading(false);
+      this.setState({
+        data: result,
+        loading: false
+      });
     });
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
+ 
+  handleOpenModal = () => {
+    this.setState({ isModalOpen: true });
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+ 
+  handleCloseModal = () => {
+    this.setState({ isModalOpen: false });
   };
 
-  const handleAddRow = (newRow) => {
-    setData((prevData) => [...prevData, newRow]); 
-    handleCloseModal(); 
+  handleAddRow = (newRow) => {
+    this.setState((prevState) => ({
+      data: [...prevState.data, newRow]
+    }));
+    this.handleCloseModal(); 
   };
 
-  return (
-    <div>
-      <Header onAddClick={handleLoadData} onAddRowClick={handleOpenModal} />
+  render() {
+    const { data, loading, isModalOpen } = this.state;
 
-      {loading ? (
-        <div className="loader">Загрузка...</div>
-      ) : (
-        <Table data={data} />
-      )}
-
-      {isModalOpen && (
-        <Modal 
-          onClose={handleCloseModal} 
-          onSubmit={handleAddRow} 
+    return (
+      <div>
+        <Header
+          onAddClick={this.handleLoadData}
+          onAddRowClick={this.handleOpenModal}
         />
-      )}
-    </div>
-  );
-};
+
+        {loading ? (
+          <div className="loader">Загрузка...</div>
+        ) : (
+          <Table data={data} />
+        )}
+
+        {isModalOpen && (
+          <Modal
+            onClose={this.handleCloseModal}
+            onSubmit={this.handleAddRow}
+          />
+        )}
+      </div>
+    );
+  }
+}
