@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import './App.css';
 import { Header } from './components/Header/Header';
 import { Table } from './components/Table/Table';
-import { Modal } from './components/Modal/Modal'; 
+import { Modal } from './components/Modal/Modal';
 import { fetchData } from './data/dataService';
 
 export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],       
-      loading: false,  
-      isModalOpen: false 
+      data: [],
+      loading: false,
+      isModalOpen: false
     };
   }
 
- 
+
   handleLoadData = () => {
     this.setState({ loading: true });
     fetchData().then((result) => {
@@ -26,12 +26,12 @@ export class App extends Component {
     });
   };
 
- 
+
   handleOpenModal = () => {
     this.setState({ isModalOpen: true });
   };
 
- 
+
   handleCloseModal = () => {
     this.setState({ isModalOpen: false });
   };
@@ -40,7 +40,7 @@ export class App extends Component {
     this.setState((prevState) => ({
       data: [...prevState.data, newRow]
     }));
-    this.handleCloseModal(); 
+    this.handleCloseModal();
   };
 
   render() {

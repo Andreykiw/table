@@ -30,7 +30,7 @@ module.exports = {
                         ].filter(Boolean),
                         presets: [
                             '@babel/preset-env',
-                            ['@babel/preset-react', { runtime: 'automatic' }] // Добавлено runtime: "automatic"
+                            ['@babel/preset-react', { runtime: 'automatic' }] 
                         ]
                     }
                 }

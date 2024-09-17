@@ -2,7 +2,7 @@
 
 const data = [
     { id: 1, name: 'Иван', surname: 'Иванов', age: 28, info: 'инженер', email: 'ivan@example.com', city: 'Санкт-Петербург'},
-    { id: 2, name: 'Анна', surname: 'Петров', age: 22, info: 'дизайнер', email: 'anna@example.com', city: 'Москва' },
+    { id: 2, name: 'Анна', surname: 'Петрова', age: 22, info: 'дизайнер', email: 'anna@example.com', city: 'Москва' },
     { id: 3, name: 'Алексей', surname: 'Сидоров', age: 35, info: 'менеджер', email: 'alex@example.com', city: 'Саранск'},
     { id: 4, name: 'Екатерина', surname: 'Федорова', age: 29, info: 'бухгалтер', email: 'ekaterina@example.com', city: 'Москва' },
     { id: 5, name: 'Дмитрий', surname: 'Никонов', age: 32, info: 'программист', email: 'dmitry@example.com', city: 'Санкт-Петербург' },
