@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
-import './TableRow.css'
+import React from 'react';
+import './TableRow.css';
 
 export const TableRow = ({ row, isExpanded, onToggle }) => {
     return (
         <>
-            <tr>
-                <td>
-                    <div className="name__cell">
-                        {row.name} {row.surname}
-                        <button
-                            className={`expand__button ${isExpanded ? 'expanded' : ''}`}
-                            onClick={onToggle}
-                        >
-                            {isExpanded ? '∧' : '∨'}
-                        </button>
-                    </div>
-                </td>
-                <td>{row.age}</td>
-            </tr>
+            <div className="table-row">
+                <div className="table-cell name__cell">
+                    {row.name}
+                    <button
+                        className={`expand__button ${isExpanded ? 'expanded' : ''}`}
+                        onClick={onToggle}
+                    >
+                        {isExpanded ? '∧' : '∨'}
+                    </button>
+                </div>
+                <div className="table-cell">
+                    {row.surname} 
+                </div>
+            </div>
             {isExpanded && (
-                <tr>
-                    <td colSpan="2">
-                        <div className="expanded__content">
-                            <p className="expanded__content-info">
-                                Информация о {row.name}:
-                            </p>
-                            <p> {row.age} лет, {row.info}, email: {row.email}, город проживания: {row.city}.</p>
-                        </div>
-                    </td>
-                </tr>
+                <div className="expanded-row">
+                    <div className="expanded-content" colSpan="2">
+                        <p className="expanded__content-info">
+                            Информация о {row.name}:
+                        </p>
+                        <p>
+                            {row.age} лет, {row.info}, email: {row.email}, город проживания: {row.city}.
+                        </p>
+                    </div>
+                </div>
             )}
         </>
     );

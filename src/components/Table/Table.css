@@ -1,16 +1,30 @@
-table {
-    font-family: Arial, Helvetica, sans-serif;
+.table {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
 }
 
-th, td {
-    border: 1px solid #dddddd;
+.table-header,
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-cell {
+    flex: 1;
+    padding: 10px;
     text-align: left;
-    padding: 8px;
 }
 
-th {
-    background-color: #406cfc;
+.table-header {
+    font-weight: bold;
+    background-color: #e0e0e0;
+}
+
+.table-body {
+    display: flex;
+    flex-direction: column;
 }

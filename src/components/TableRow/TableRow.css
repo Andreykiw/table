@@ -1,15 +1,40 @@
-.name__cell {
+.table-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-cell {
+    flex: 1;
+    padding: 8px;
+    position: relative;
+}
+
+.name__cell {
+    display: flex;
     align-items: center;
 }
 
 .expand__button {
+    margin-left: 10px;
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 16px;
-    padding: 0;
-    margin-left: 10px;
-    transition: all .25s ease-in-out;
+    font-size: 14px;
+}
+
+.expanded-row {
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.expanded__content-info {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.expanded-content p {
+    margin: 5px 0;
 }

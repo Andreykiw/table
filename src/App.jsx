@@ -15,8 +15,8 @@ export class App extends Component {
     };
   }
 
-
-  handleLoadData = () => {
+  
+  componentDidMount() {
     this.setState({ loading: true });
     fetchData().then((result) => {
       this.setState({
@@ -24,13 +24,11 @@ export class App extends Component {
         loading: false
       });
     });
-  };
-
+  }
 
   handleOpenModal = () => {
     this.setState({ isModalOpen: true });
   };
-
 
   handleCloseModal = () => {
     this.setState({ isModalOpen: false });

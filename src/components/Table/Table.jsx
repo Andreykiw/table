@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TableRow } from '../TableRow/TableRow'; 
+import { TableRow } from '../TableRow/TableRow';
 import './Table.css';
 
 export const Table = ({ data }) => {
@@ -13,14 +13,12 @@ export const Table = ({ data }) => {
     };
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Имя</th>
-                    <th>Возраст</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div className="table">
+            <div className="table-header">
+                <div className="table-cell">Имя</div>
+                <div className="table-cell">Фамилия</div>
+            </div>
+            <div className="table-body">
                 {data.map((row) => (
                     <TableRow
                         key={row.id}
@@ -29,7 +27,7 @@ export const Table = ({ data }) => {
                         onToggle={() => handleRowClick(row.id)}
                     />
                 ))}
-            </tbody>
-        </table>
+            </div>
+        </div>
     );
 };
