@@ -54,7 +54,25 @@ module.exports = {
             },
             {
                 test: /\.css$/, 
-                use: ['style-loader', 'css-loader']
+                oneOf: [
+                    {
+                        test: /\.module\.css$/, // Обработка CSS модулей
+                        use: [
+                            'style-loader',
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    modules: {
+                                        localIdentName: '[name]__[local]__[hash:base64:5]', // Имя классов для модулей
+                                    },
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        use: ['style-loader', 'css-loader'],
+                    },
+                ],
             }
         ]
     },

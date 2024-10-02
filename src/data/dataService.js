@@ -12,12 +12,12 @@ const data = [
 ];
 
 // Функция для сохранения данных в localStorage
-const saveDataToLocalStorage = (data) => {
+export const saveDataToLocalStorage = (data) => {
     localStorage.setItem('userData', JSON.stringify(data));
 };
 
 // Функция для получения данных из localStorage
-const getDataFromLocalStorage = () => {
+export const getDataFromLocalStorage = () => {
     const storedData = localStorage.getItem('userData');
     return storedData ? JSON.parse(storedData) : null;
 };

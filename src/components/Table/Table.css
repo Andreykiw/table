@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: #f5f5f5;
+    background-color: #fff;
     border-bottom: 1px solid #ddd;
 }
 
@@ -21,7 +21,8 @@
 
 .table-header {
     font-weight: bold;
-    background-color: #e0e0e0;
+    background-color: #fff;
+    color: #8e8e8e
 }
 
 .table-body {

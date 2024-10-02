@@ -1,7 +1,7 @@
 import React from 'react';
 import './TableRow.css';
 
-export const TableRow = ({ row, isExpanded, onToggle }) => {
+export const TableRow = ({ row, isExpanded, onToggle, onEdit }) => {
     return (
         <>
             <div className="table-row">
@@ -27,6 +27,13 @@ export const TableRow = ({ row, isExpanded, onToggle }) => {
                         <p>
                             {row.age} лет, {row.info}, email: {row.email}, город проживания: {row.city}.
                         </p>
+                        {/* Кнопка для редактирования строки */}
+                        <button 
+                            className="edit__button" 
+                            onClick={() => onEdit(row)} // Передаем строку для редактирования
+                        >
+                            Редактировать
+                        </button>
                     </div>
                 </div>
             )}

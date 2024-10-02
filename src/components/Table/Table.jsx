@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { TableRow } from '../TableRow/TableRow';
 import './Table.css';
 
-export const Table = ({ data }) => {
+export const Table = ({ data, onEditRowClick }) => {
+    if (!data || !Array.isArray(data)) {
+        return <div>Нет данных для отображения</div>;
+    }
     const [expandedRows, setExpandedRows] = useState({});
 
+    // Функция для управления раскрытием строк
     const handleRowClick = (id) => {
         setExpandedRows((prevExpandedRows) => ({
             ...prevExpandedRows,
@@ -25,6 +29,7 @@ export const Table = ({ data }) => {
                         row={row}
                         isExpanded={!!expandedRows[row.id]}
                         onToggle={() => handleRowClick(row.id)}
+                        onEdit={() => onEditRowClick(row)} //  Функция редактирования с текущей строкой
                     />
                 ))}
             </div>
