@@ -1,23 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './Modal.css';
 
 export const Modal = ({ onClose, onSubmit, initialData }) => {
-  const [formData, setFormData] = useState({
-    id: Date.now(),
-    name: '',
-    surname: '',
-    age: '',
-    info: '',
-    email: '',
-    city: '',
-  });
-
-  // Если есть начальные данные (редактирование), заполняем форму этими данными
-  useEffect(() => {
-    if (initialData) {
-      setFormData(initialData);
+  // Инициализация состояния в зависимости от наличия начальных данных
+  const [formData, setFormData] = useState(
+    initialData || {
+      id: Date.now(),
+      name: '',
+      surname: '',
+      age: '',
+      info: '',
+      email: '',
+      city: '',
     }
-  }, [initialData]);
+  );
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +22,7 @@ export const Modal = ({ onClose, onSubmit, initialData }) => {
     if (name === 'age') {
       // Проверка на отрицательные значения и возраст более 120
       if (value < 0 || value > 120) {
-        alert('Некорректые данные');
+        alert('Некорректные данные');
         return;
       }
     }

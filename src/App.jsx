@@ -49,7 +49,7 @@ export class App extends Component {
   handleOpenEditModal = (row) => {
     this.setState({
       isModalOpen: true,    
-      editingRow: row       // Передача данные строки для редактирования
+      editingRow: row       // Передача данных строки для редактирования
     });
   };
   
