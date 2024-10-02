@@ -30,7 +30,7 @@ export const TableRow = ({ row, isExpanded, onToggle, onEdit }) => {
                         {/* Кнопка для редактирования строки */}
                         <button 
                             className="edit__button" 
-                            onClick={() => onEdit(row)} // Передаем строку для редактирования
+                            onClick={() => onEdit(row)} // Передача строки для редактирования
                         >
                             Редактировать
                         </button>

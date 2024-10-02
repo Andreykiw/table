@@ -13,7 +13,7 @@ export class App extends Component {
       loading: false, // индикатор загрузки
       error: null, // состояние для ошибки
       isModalOpen: false, // состояние для модального окна
-      editingRow: null, // строка, которую редактируем
+      editingRow: null, // строка для редактирования
       currentPage: 1, // текущая страница
       itemsPerPage: 5, // количество элементов на странице
       totalItems: 0 // общее количество элементов
@@ -30,7 +30,7 @@ export class App extends Component {
       .then((result) => {
         this.setState({
           data: result,
-          totalItems: result.length, // Обновляем общее количество элементов
+          totalItems: result.length, // Обновление общего количество элементов
           loading: false
         });
       })

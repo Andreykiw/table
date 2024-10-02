@@ -22,7 +22,7 @@ export const Modal = ({ onClose, onSubmit, initialData }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Если изменяется поле возраста, проверяем условия
+    // Проверка возраста
     if (name === 'age') {
       // Проверка на отрицательные значения и возраст более 120
       if (value < 0 || value > 120) {

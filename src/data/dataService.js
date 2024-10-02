@@ -26,7 +26,7 @@ export const getDataFromLocalStorage = () => {
 export const fetchData = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            // Проверяем, есть ли данные в localStorage
+            // Проверка наличия данных в localstorages
             const storedData = getDataFromLocalStorage();
 
             if (storedData) {
