@@ -16,12 +16,21 @@ export class App extends Component {
       editingRow: null, // строка для редактирования
       currentPage: 1, // текущая страница
       itemsPerPage: 5, // количество элементов на странице
-      totalItems: 0 // общее количество элементов
+      totalItems: 0, // общее количество элементов
+      hasDataChanged: false, // флаг, отслеживающий, были ли данные изменены
     };
   }
 
   componentDidMount() {
     this.loadData();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Проверяем, если данные изменились и это изменение не связано с первым рендером
+    if (this.state.hasDataChanged && prevState.data !== this.state.data) {
+      alert('Данные успешно обновлены!');
+      this.setState({ hasDataChanged: false }); // Сбрасываем флаг после показа сообщения
+    }
   }
 
   loadData = () => {
@@ -30,14 +39,14 @@ export class App extends Component {
       .then((result) => {
         this.setState({
           data: result,
-          totalItems: result.length, // Обновление общего количество элементов
-          loading: false
+          totalItems: result.length,
+          loading: false,
         });
       })
       .catch((error) => {
         this.setState({
           loading: false,
-          error: 'Ошибка при загрузке данных'
+          error: 'Ошибка при загрузке данных',
         });
       });
   };
@@ -48,11 +57,10 @@ export class App extends Component {
 
   handleOpenEditModal = (row) => {
     this.setState({
-      isModalOpen: true,    
-      editingRow: row       // Передача данных строки для редактирования
+      isModalOpen: true,
+      editingRow: row,
     });
   };
-  
 
   handleCloseModal = () => {
     this.setState({ isModalOpen: false });
@@ -62,7 +70,7 @@ export class App extends Component {
     this.setState((prevState) => {
       const updatedData = [...prevState.data, newRow];
       saveDataToLocalStorage(updatedData);
-      return { data: updatedData, totalItems: updatedData.length };
+      return { data: updatedData, totalItems: updatedData.length, hasDataChanged: true };
     });
     this.handleCloseModal();
   };
@@ -73,16 +81,22 @@ export class App extends Component {
         row.id === updatedRow.id ? updatedRow : row
       );
       saveDataToLocalStorage(updatedData);
-      return { data: updatedData };
+      return { data: updatedData, hasDataChanged: true };
     });
     this.handleCloseModal();
-    alert("Данные изменены");
   };
 
   render() {
-    const { data, loading, error, isModalOpen, editingRow, currentPage, itemsPerPage } = this.state;
+    const {
+      data,
+      loading,
+      error,
+      isModalOpen,
+      editingRow,
+      currentPage,
+      itemsPerPage,
+    } = this.state;
 
-    // Расчет индексов для пагинации
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentData = data.slice(indexOfFirstItem, indexOfLastItem);
